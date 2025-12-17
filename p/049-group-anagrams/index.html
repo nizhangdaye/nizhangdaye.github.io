@@ -389,6 +389,22 @@
 </li>
 </ol>
 </li>
+<li>复杂度分析
+<ul>
+<li>时间复杂度：$O(nm\log m)$
+<ul>
+<li>其中 $n$ 为列表长度</li>
+<li>$m$ 为字符串长度</li>
+<li>长度为 $m$ 的字符串排序耗时 $m\log m$</li>
+</ul>
+</li>
+<li>空间复杂度： $O(nm)$
+<ul>
+<li>$n$ 为字符串个数，$m$ 为字符串平均长度</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -405,25 +421,21 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">groupAnagrams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1"># 将字符串重新排序，作为字典的键</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 字典的值用于存储字符串</span>
 </span></span><span class="line"><span class="cl">        <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">str_</span> <span class="ow">in</span> <span class="n">strs</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">sort_str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">str_</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">sort_str</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">my_dict</span><span class="p">[</span><span class="n">sort_str</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">str_</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sorted_str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">str_</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">sorted_str</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">my_dict</span><span class="p">[</span><span class="n">sorted_str</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">str_</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">my_dict</span><span class="p">[</span><span class="n">sort_str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">str_</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">my_dict</span><span class="p">[</span><span class="n">sorted_str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">str_</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
