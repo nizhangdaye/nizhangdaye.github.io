@@ -33,8 +33,7 @@
 &lt;li&gt;核心思想：将问题 &lt;code&gt;num1 + num2 = target&lt;/code&gt; 转化为 &lt;code&gt;num2 = target - num1&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;若能快速判断 &lt;code&gt;target - num1&lt;/code&gt; 是否已出现过，并获取其索引，则可一次遍历解决&lt;/li&gt;
 &lt;li&gt;在普通列表中查找元素需 $O(n)$，但哈希表支持平均 $O (1)$ 的查找
-  - 算法步骤：&lt;/li&gt;
-&lt;/ul&gt;
+  - 算法步骤：
 &lt;ol&gt;
 &lt;li&gt;初始化空哈希表 &lt;code&gt;hash_map&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;遍历数组，对每个元素 &lt;code&gt;num&lt;/code&gt; 及其索引 &lt;code&gt;i&lt;/code&gt;：
@@ -47,6 +46,8 @@
 &lt;ul&gt;
 &lt;li&gt;时间复杂度：$O(n)$&lt;/li&gt;
 &lt;li&gt;空间复杂度：$O(n)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
