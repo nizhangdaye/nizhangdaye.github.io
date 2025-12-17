@@ -9,14 +9,14 @@
         <copyright>nizhangdaye</copyright>
         <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>01.两数之和</title>
-        <link>https://example.com/p/blog-post-slug/</link>
+        <link>https://example.com/p/001-two-sum/</link>
         <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/p/blog-post-slug/</guid>
+        <guid>https://example.com/p/001-two-sum/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;题目链接：&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/two-sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;1. 两数之和&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;知识回顾：&lt;a class=&#34;link&#34; href=&#34;https://example.com/p/blog-post-slug/&#34; &gt;哈希表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;知识回顾：&lt;a class=&#34;link&#34; href=&#34;https://example.com/p/hash-table/&#34; &gt;哈希表&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -76,10 +76,10 @@
         </item>
         <item>
         <title>哈希表</title>
-        <link>https://example.com/p/blog-post-slug/</link>
+        <link>https://example.com/p/hash-table/</link>
         <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/p/blog-post-slug/</guid>
+        <guid>https://example.com/p/hash-table/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;未完持续&lt;/li&gt;
 &lt;/ul&gt;
@@ -88,10 +88,10 @@
         </item>
         <item>
         <title>PINN——物理信息神经网络</title>
-        <link>https://example.com/p/blog-post-slug/</link>
+        <link>https://example.com/p/pinn-physics-informed-neural-networks/</link>
         <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/p/blog-post-slug/</guid>
+        <guid>https://example.com/p/pinn-physics-informed-neural-networks/</guid>
         <description>&lt;h1 id=&#34;一pinn-简介&#34;&gt;一、PINN 简介
 &lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;Physics-Informed Neural Networks&lt;/li&gt;
