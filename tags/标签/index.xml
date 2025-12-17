@@ -7,19 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>nizhangdaye</copyright>
-        <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/%E6%A0%87%E7%AD%BE/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>哈希表</title>
-        <link>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/</link>
-        <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/</guid>
-        <description>&lt;ul&gt;
-&lt;li&gt;未完持续&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;打算发发&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/%E6%A0%87%E7%AD%BE/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>PINN——物理信息神经网络</title>
         <link>https://example.com/posts/%E5%AD%A6%E6%B5%B7/blog-post-slug/</link>
         <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>

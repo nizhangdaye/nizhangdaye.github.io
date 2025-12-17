@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>#哈希表 on 你张大爷的博客</title>
-        <link>https://example.com/tags/%23%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
-        <description>Recent content in #哈希表 on 你张大爷的博客</description>
+        <title>哈希表 on 你张大爷的博客</title>
+        <link>https://example.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+        <description>Recent content in 哈希表 on 你张大爷的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>nizhangdaye</copyright>
-        <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/%23%E5%93%88%E5%B8%8C%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>01.两数之和</title>
         <link>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E9%A2%98%E7%9B%AE/blog-post-slug/</link>
         <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
@@ -73,6 +73,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>哈希表</title>
+        <link>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/</link>
+        <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/</guid>
+        <description>&lt;ul&gt;
+&lt;li&gt;未完持续&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;打算发发&lt;/p&gt;
+</description>
         </item>
         
     </channel>
