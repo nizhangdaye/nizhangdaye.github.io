@@ -8,7 +8,13 @@
     <loc>https://example.com/p/001-two-sum/</loc>
     <lastmod>2025-12-17T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://example.com/p/049-group-anagrams/</loc>
+    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://example.com/categories/</loc>
+    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/defaultdict/</loc>
     <lastmod>2025-12-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/post/</loc>
