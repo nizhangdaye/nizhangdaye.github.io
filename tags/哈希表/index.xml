@@ -9,14 +9,14 @@
         <copyright>nizhangdaye</copyright>
         <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>01.两数之和</title>
-        <link>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E9%A2%98%E7%9B%AE/blog-post-slug/</link>
+        <link>https://example.com/p/blog-post-slug/</link>
         <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E9%A2%98%E7%9B%AE/blog-post-slug/</guid>
+        <guid>https://example.com/p/blog-post-slug/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;题目链接：&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/two-sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;1. 两数之和&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;知识回顾：&lt;a class=&#34;link&#34; href=&#34;https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/&#34; &gt;哈希表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;知识回顾：&lt;a class=&#34;link&#34; href=&#34;https://example.com/p/blog-post-slug/&#34; &gt;哈希表&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -76,10 +76,10 @@
         </item>
         <item>
         <title>哈希表</title>
-        <link>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/</link>
+        <link>https://example.com/p/blog-post-slug/</link>
         <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/</guid>
+        <guid>https://example.com/p/blog-post-slug/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;未完持续&lt;/li&gt;
 &lt;/ul&gt;

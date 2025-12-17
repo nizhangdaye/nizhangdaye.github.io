@@ -2,16 +2,16 @@
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="描述">
-<title>01.两数之和</title>
+<title>PINN——物理信息神经网络</title>
 
-<link rel='canonical' href='https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E9%A2%98%E7%9B%AE/blog-post-slug/'>
+<link rel='canonical' href='https://example.com/p/blog-post-slug/'>
 
-<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="01.两数之和">
+<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="PINN——物理信息神经网络">
 <meta property='og:description' content="描述">
-<meta property='og:url' content='https://example.com/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E9%A2%98%E7%9B%AE/blog-post-slug/'>
+<meta property='og:url' content='https://example.com/p/blog-post-slug/'>
 <meta property='og:site_name' content='你张大爷的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='哈希表' /><meta property='article:published_time' content='2025-12-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-17T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="01.两数之和">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='神经网络' /><meta property='article:published_time' content='2025-12-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="PINN——物理信息神经网络">
 <meta name="twitter:description" content="描述">
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -263,6 +263,31 @@
         
             
                 
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#11-什么是-pinn">1.1 什么是 PINN</a></li>
+    <li><a href="#12-pinn-与普通神经网络的区别">1.2 PINN 与普通神经网络的区别</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
             
         
             
@@ -314,7 +339,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E9%A2%98%E7%9B%AE/blog-post-slug/">01.两数之和</a>
+            <a href="/p/blog-post-slug/">01.两数之和</a>
         </h2>
     
         
@@ -356,66 +381,297 @@
     <section class="article-content">
     
     
-    <ul>
-<li>题目链接：<a class="link" href="https://leetcode.cn/problems/two-sum/"  target="_blank" rel="noopener"
-    >1. 两数之和</a></li>
-<li>知识回顾：<a class="link" href="/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/" >哈希表</a></li>
+    <h1 id="一pinn-简介">一、PINN 简介
+</h1><ul>
+<li>Physics-Informed Neural Networks</li>
 </ul>
-<hr>
+<h2 id="11-什么是-pinn">1.1 什么是 PINN
+</h2><ul>
+<li>背景
 <ul>
-<li>暴力解法
+<li>很多科学里的问题，没有太多数据可以学，但我们有物理规律</li>
+<li>比如
 <ul>
-<li>使用两层 for 循环遍历所有两数组合</li>
-<li>时间复杂度：$O (n^2)$</li>
-<li>空间复杂度：$O (1)$</li>
-<li>其中 $n$ 为数组长度</li>
-</ul>
-</li>
-<li>哈希表优化
-<ul>
-<li>核心思想：将问题 <code>num1 + num2 = target</code> 转化为 <code>num2 = target - num1</code></li>
-<li>若能快速判断 <code>target - num1</code> 是否已出现过，并获取其索引，则可一次遍历解决</li>
-<li>在普通列表中查找元素需 $O(n)$，但哈希表支持平均 $O (1)$ 的查找
-  - 算法步骤：</li>
-</ul>
-<ol>
-<li>初始化空哈希表 <code>hash_map</code></li>
-<li>遍历数组，对每个元素 <code>num</code> 及其索引 <code>i</code>：
-<ul>
-<li>若 <code>target - num</code> 已在哈希表中，返回 <code>[hash_map[target - num], i]</code></li>
-<li>否则，将 <code>num: i</code> 存入哈希表</li>
+<li>海水怎么流（数据少，但物理规律明确）</li>
+<li>心脏里的血流怎么走（不好测，但物理知道）</li>
+<li>地震波怎样传播（难观察，但方程知道）</li>
 </ul>
 </li>
-</ol>
-<ul>
-<li>时间复杂度：$O(n)$</li>
-<li>空间复杂度：$O(n)$</li>
+<li>普通 AI 不懂这些规律，会乱猜</li>
 </ul>
 </li>
+<li><strong>PINN 就能利用物理规律，少量数据也能算得非常准</strong>
+<ul>
+<li>用一句话来说，PINN 就是：让“神经网络”按照“物理定律”来学习的一种方法</li>
+</ul>
+</li>
+<li>这里给一个比喻
+<ul>
+<li>训练一个普通的 AI 模型，就像教一个小孩画画。这个孩子只知道照着例子画，你给什么他画什么（照猫画虎），没道理可讲（即神经网络输出的结果只与真实标签做损失，监督学习）</li>
+<li>但是 PINN 不一样
+<ul>
+<li>给它一点点实际数据，它能学</li>
+<li>最重要的是，它还“从小背过物理书”，知道
+<ul>
+<li>水怎么流</li>
+<li>热怎么传</li>
+<li>风怎么吹</li>
+<li>东西怎么震动</li>
+<li>光怎么折射</li>
+</ul>
+</li>
+<li>这些都叫 <strong>“物理方程”</strong></li>
+</ul>
+</li>
+<li>所以它不是瞎学，它有“规矩”，有“脑子”，有“常识”
+<ul>
+<li>就像绘画高手，懂结构、光影、透视，所以会画的更好</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-pinn-与普通神经网络的区别">1.2 PINN 与普通神经网络的区别
+</h2><ul>
+<li>神经网络用来“猜”答案
+<ul>
+<li>比如猜温度、压力、水的速度……</li>
+</ul>
+</li>
+<li>但是它的猜法必须满足“物理方程”
+<ul>
+<li>比如能量守恒、质量守恒、牛顿定律……</li>
+<li>就像告诉它：你不能乱猜，要合规矩！</li>
+</ul>
+</li>
+<li>用“数据 + 物理”一起纠正它
+<ul>
+<li>它猜得不对，马上被纠正</li>
+<li>物理方程也不让它瞎走</li>
+<li>于是越猜越准</li>
+</ul>
+</li>
+<li>举例子
+<ul>
+<li>例子 1：屋子里温度怎么变？
+<ul>
+<li>假设房间里有暖气，问 30 分钟后哪个角落最暖？</li>
+<li>普通神经网络：
+<ul>
+<li>要给它很多温度计数据，它才能学。</li>
+</ul>
+</li>
+<li>PINN：
+<ul>
+<li>给它少量数据 + 热传导定律，它自己能算出整个房间的温度分布。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>例子 2：水从高处往低处流
+<ul>
+<li>PINN 知道“水往低处流”的规律，不需要测每个点的水速</li>
+</ul>
+</li>
+<li>例子 3：心脏里的血流
+<ul>
+<li>医院无法把心脏每个点都装传感器</li>
+<li>但 PINN 用少量 MRI 数据 + 流体力学规律</li>
+<li>就能推算整个心脏内部血流</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二pinn-的框架">二、PINN 的框架
+</h1><ul>
+<li>PINN 模型通常由一个深度神经网络构成，其特点在于损失函数中加入了物理信息项，即所遵循的物理定律
+<ul>
+<li><img src="/00%20Attachments/Pasted%20image%2020251127163525.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="400"
+	
+	
+></li>
+</ul>
+</li>
+<li>PINN 主要分以下两个部分
+<ul>
+<li>神经网络结构
+<ul>
+<li>网络输入通常是问题域中的位置、时间等参数，输出是感兴趣物理量的估计值（例如速度、压力等）</li>
+</ul>
+</li>
+<li>定义损失函数
+<ul>
+<li>损失函数是模型训练中的关键部分，又包含以下两部分
+<ul>
+<li>数据损失项
+<ul>
+<li>这部分用来衡量网络预测输出与实际观测数据之间的差异，目的是使网络能够尽可能拟合数据</li>
+</ul>
+</li>
+<li>物理损失项
+<ul>
+<li>这部分是 PINN 独有的，它考量了网络预测结果是否满足物理定律</li>
+<li>将网络预测的物理量代入相应的物理定律（通常是微分方程）中计算得到的残差构成这一部分损失函数，从而确保了物理一致性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="三pinn-的应用">三、PINN 的应用
+</h1><ul>
+<li>这里以浅水方程为例：构建一个能够利用地形深度输入、并通过物理方程约束来预测浅水动力过程（如流速、水深演化）的 PINN 模型
+<ul>
+<li>基于地形的洪水模拟</li>
+</ul>
+</li>
+<li>浅水方程（Shallow Water Equations, SWE）二维形式如下（以保守型为例，假设地形平坦，无摩擦）
+<ul>
+<li>质量守恒、动量守恒 <img src="/00%20Attachments/Pasted%20image%2020251127165913.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="400"
+	
+	
+></li>
+<li>其中
+<ul>
+<li>$h(x,y,t)$：水深</li>
+<li>$u,v$：水平速度</li>
+<li>$g$：重力加速度</li>
+</ul>
+</li>
+<li>浅水方程的核心目标是描述
+<ul>
+<li>水深如何随时间变化：（质量守恒，Continuity）</li>
+<li>水流速度如何随时间变化：（动量守恒，Momentum）</li>
+</ul>
+</li>
+<li>换句话说
+浅水方程告诉我们：水有多深，以及它往哪里、以多快的速度流动。</li>
+<li>由于忽略了垂向加速度并假设压力近似为静水压力，浅水方程比完整的 Navier–Stokes 方程更简单，但仍保留了大部分重要物理特征，非常适合大尺度水动力模拟</li>
+</ul>
+</li>
+<li>神经网络预测 $(h_θ​,u_θ​,v_θ​)$</li>
+<li>将其代入 PDE，构造残差
+<ul>
+<li><img src="/00%20Attachments/Pasted%20image%2020251127170138.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="400"
+	
+	
+></li>
+</ul>
+</li>
+<li>物理损失
+<ul>
+<li><img src="/00%20Attachments/Pasted%20image%2020251127170208.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="300"
+	
+	
+></li>
+</ul>
+</li>
+<li>最终损失
+<ul>
+<li><img src="/00%20Attachments/Pasted%20image%2020251127171456.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="200"
+	
+	
+></li>
+</ul>
+</li>
+<li>伪代码</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hash_map</span> <span class="o">=</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">complement</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">complement</span> <span class="ow">in</span> <span class="n">hash_map</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">[</span><span class="n">hash_map</span><span class="p">[</span><span class="n">complement</span><span class="p">],</span> <span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="n">hash_map</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 伪代码概念演示</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_obs</span><span class="p">,</span> <span class="n">DEM</span><span class="p">,</span> <span class="n">cond</span> <span class="o">=</span> <span class="n">batch</span>  <span class="c1"># 遥感观测，地形等</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">sample_time_steps</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x_t</span> <span class="o">=</span> <span class="n">q_sample</span><span class="p">(</span><span class="n">img_obs</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>   <span class="c1"># 扰动成噪声 (扩散训练常规)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">eps_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">cond</span><span class="p">)</span>   <span class="c1"># 去噪网络输出噪声估计</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 基本扩散损失</span>
+</span></span><span class="line"><span class="cl">    <span class="n">L_data</span> <span class="o">=</span> <span class="n">mse</span><span class="p">(</span><span class="n">eps_pred</span><span class="p">,</span> <span class="n">true_eps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># decode to physical fields (e.g., h,u,v) from x_t or eps_pred</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">decode_physical_field</span><span class="p">(</span><span class="n">x_t</span><span class="p">,</span> <span class="n">eps_pred</span><span class="p">,</span> <span class="n">DEM</span><span class="p">,</span> <span class="n">cond</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># compute physics residuals (using finite diff or differentiable solver)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">residual</span> <span class="o">=</span> <span class="n">shallow_water_residual</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">DEM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">L_phy</span> <span class="o">=</span> <span class="n">mse</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">loss</span> <span class="o">=</span> <span class="n">L_data</span> <span class="o">+</span> <span class="n">lambda_phy</span> <span class="o">*</span> <span class="n">L_phy</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><hr>
+<ul>
+<li>参考文献
+<ul>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/544561165"  target="_blank" rel="noopener"
+    >PINN——加入物理约束的神经网络 - 知乎</a></li>
+<li><a class="link" href="https://blog.csdn.net/qq_28247201/article/details/136072595"  target="_blank" rel="noopener"
+    >物理信息神经网络（PINN）: 将物理知识融合到深度学习中</a></li>
+<li><a class="link" href="https://www.youtube.com/watch?v=-zrY7P2dVC4"  target="_blank" rel="noopener"
+    >Physics Informed Neural Networks (PINNs) [Physics Informed Machine Learning]</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1QQQnYJE6G/?vd_source=6fde3ed6da8858e6f7b2f1cc620c6173&amp;p=2&amp;spm_id_from=333.788.videopod.episodes"  target="_blank" rel="noopener"
+    >PINN核心技术揭秘：如何用神经网络求解偏微分方程？</a></li>
+</ul>
+</li>
+</ul>
+
 </section>
 
 
@@ -423,7 +679,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
         
     </section>
 
@@ -477,12 +733,12 @@
             
                 
 <article class="">
-    <a href="/posts/%E7%AE%97%E6%B3%95%E6%8B%BE%E9%81%97/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/blog-post-slug/">
+    <a href="/p/blog-post-slug/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">哈希表</h2>
+            <h2 class="article-title">01.两数之和</h2>
         </div>
     </a>
 </article>
@@ -490,12 +746,12 @@
             
                 
 <article class="">
-    <a href="/posts/%E5%AD%A6%E6%B5%B7/blog-post-slug/">
+    <a href="/p/blog-post-slug/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">PINN——物理信息神经网络</h2>
+            <h2 class="article-title">哈希表</h2>
         </div>
     </a>
 </article>
