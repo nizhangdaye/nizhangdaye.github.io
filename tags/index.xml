@@ -5,7 +5,7 @@
         <link>https://example.com/tags/</link>
         <description>Recent content in Tags on 你张大爷的博客</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>en-us</language>
         <copyright>nizhangdaye</copyright>
         <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>双指针</title>
