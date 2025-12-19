@@ -365,10 +365,9 @@
     >128. 最长连续序列</a></li>
 <li>知识回顾：
 <ul>
-<li><a class="link" href="/p/hash-table/" >哈希表</a></li>
-<li>元组
+<li><a class="link" href="/p/hash-table/" >哈希表</a>
 <ul>
-<li>元组为哈希表，且元组不可修改，且元组中无重复元素</li>
+<li>在 Python 中，<code>set</code> (集合)是基于哈希表实现的，支持 $O(1)$ 平均时间复杂度的成员检查（<code>in</code> 操作）</li>
 </ul>
 </li>
 </ul>
@@ -400,8 +399,25 @@
 </li>
 <li>复杂度分析
 <ul>
-<li>时间复杂度：</li>
-<li>空间复杂度：</li>
+<li>时间复杂度：$O(n)$
+<ul>
+<li>虽然有嵌套循环，但<strong>每个元素最多被访问两次</strong>
+<ul>
+<li>一次在外层 for 循环，一次在 while 循环中作为连续序列的一部分
+<ul>
+<li>并不是每次 for 都会执行 while</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>因此整体仍是线性时间</li>
+</ul>
+</li>
+<li>空间复杂度：$O(n)$
+<ul>
+<li>需要额外空间存储 <code>set(nums)</code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -18,10 +18,9 @@
     &gt;128. 最长连续序列&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;知识回顾：
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://example.com/p/hash-table/&#34; &gt;哈希表&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;元组
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://example.com/p/hash-table/&#34; &gt;哈希表&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;元组为哈希表，且元组不可修改，且元组中无重复元素&lt;/li&gt;
+&lt;li&gt;在 Python 中，&lt;code&gt;set&lt;/code&gt; (集合)是基于哈希表实现的，支持 $O(1)$ 平均时间复杂度的成员检查（&lt;code&gt;in&lt;/code&gt; 操作）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -53,8 +52,25 @@
 &lt;/li&gt;
 &lt;li&gt;复杂度分析
 &lt;ul&gt;
-&lt;li&gt;时间复杂度：&lt;/li&gt;
-&lt;li&gt;空间复杂度：&lt;/li&gt;
+&lt;li&gt;时间复杂度：$O(n)$
+&lt;ul&gt;
+&lt;li&gt;虽然有嵌套循环，但&lt;strong&gt;每个元素最多被访问两次&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;一次在外层 for 循环，一次在 while 循环中作为连续序列的一部分
+&lt;ul&gt;
+&lt;li&gt;并不是每次 for 都会执行 while&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;因此整体仍是线性时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;空间复杂度：$O(n)$
+&lt;ul&gt;
+&lt;li&gt;需要额外空间存储 &lt;code&gt;set(nums)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
