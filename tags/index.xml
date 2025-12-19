@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>nizhangdaye</copyright>
-        <lastBuildDate>Thu, 18 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>双指针</title>
+        <link>https://example.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+        <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>哈希表</title>
         <link>https://example.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
         <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
