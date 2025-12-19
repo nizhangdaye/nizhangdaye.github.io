@@ -120,29 +120,6 @@
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>双指针常用套路</title>
-        <link>https://example.com/p/blog-post-slug/</link>
-        <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/p/blog-post-slug/</guid>
-        <description>&lt;ul&gt;
-&lt;li&gt;题目链接&lt;/li&gt;
-&lt;li&gt;知识回顾&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;关键观察&lt;/li&gt;
-&lt;li&gt;算法步骤&lt;/li&gt;
-&lt;li&gt;复杂度分析
-&lt;ul&gt;
-&lt;li&gt;时间复杂度&lt;/li&gt;
-&lt;li&gt;空间复杂度&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
         <title>128. 最长连续序列</title>
         <link>https://example.com/p/128-longest-consecutive-sequence/</link>
         <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
