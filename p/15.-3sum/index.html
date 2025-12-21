@@ -2,16 +2,16 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="描述">
-<title>128. 最长连续序列</title>
+<title>015. 三数之和</title>
 
-<link rel='canonical' href='https://example.com/p/128-longest-consecutive-sequence/'>
+<link rel='canonical' href='https://example.com/p/15.-3sum/'>
 
-<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="128. 最长连续序列">
+<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="015. 三数之和">
 <meta property='og:description' content="描述">
-<meta property='og:url' content='https://example.com/p/128-longest-consecutive-sequence/'>
+<meta property='og:url' content='https://example.com/p/15.-3sum/'>
 <meta property='og:site_name' content='你张大爷的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='哈希表' /><meta property='article:published_time' content='2025-12-18T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-18T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="128. 最长连续序列">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='双指针' /><meta property='article:published_time' content='2025-12-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="015. 三数之和">
 <meta name="twitter:description" content="描述">
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -326,7 +326,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/128-longest-consecutive-sequence/">128. 最长连续序列</a>
+            <a href="/p/15.-3sum/">015. 三数之和</a>
         </h2>
     
         
@@ -352,7 +352,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published" datetime='2025-12-18T00:00:00Z'>2025-12-18</time>
+                <time class="article-time--published" datetime='2025-12-21T00:00:00Z'>2025-12-21</time>
             </div>
         
 
@@ -369,61 +369,54 @@
     
     
     <ul>
-<li>题目链接：<a class="link" href="https://leetcode.cn/problems/longest-consecutive-sequence/"  target="_blank" rel="noopener"
-    >128. 最长连续序列</a></li>
-<li>知识回顾：
+<li>题目链接：<a class="link" href="https://leetcode.cn/problems/3sum/"  target="_blank" rel="noopener"
+    >15. 三数之和</a></li>
+<li>知识回顾
 <ul>
-<li><a class="link" href="/p/hash-table/" >哈希表</a>
-<ul>
-<li>在 Python 中，<code>set</code> (集合)是基于哈希表实现的，支持 $O(1)$ 平均时间复杂度的成员检查（<code>in</code> 操作）</li>
-</ul>
-</li>
+<li><a class="link" href="/p/%E5%8F%8C%E6%8C%87%E9%92%88%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF/" >双指针常用套路</a></li>
 </ul>
 </li>
 </ul>
 <hr>
 <ul>
-<li>观察到：找数字连续的最长序列→找连续序列→找连续序列中的最大值/最小值
+<li>关键观察
 <ul>
-<li>不妨来寻找序列的最小值</li>
+<li>将三数之和转化为两数之和
+<ul>
+<li>固定一个数 A，在数组剩下的部分中寻找满足条件的两个数 B、C，使 $B + C = -A$</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>算法步骤
 <ul>
-<li>遍历列表 <code>num</code>
+<li>将 nums 进行排序，使满足双指针条件，并便于排除重复的结果</li>
+<li>避免重复
 <ul>
-<li>若 <code>num - 1</code> 存在于列表中，则 <code>num</code> 不是最小值</li>
-<li>否则，<code>num</code> 为最小值，开始找最大值，并记录长度</li>
+<li>$nums = [-4, -1, -1, 0, 1, 2]$，可知 $nums[3]+nums[4]=-nums[1]，nums[3]+nums[4]=-nums[2]$，出现了重复，此时就要通过前后数字比较进行避免重复的结果</li>
+<li>$nums=[-2,-1,0,0,2,2]$，可知 $nums[2]+nums[5]=-nums[0]，nuns[3]+nums[5]+nums[0]$，出现了重复，此时就要通过前后数字比较机型避免重复的结果</li>
 </ul>
 </li>
-<li>更新长度</li>
+<li>通过双指针寻找 $B + C = -A$
+<ul>
+<li>如果 $B + C &lt; -A$，则 $left_index += 1$</li>
+<li>如果 $B + C &gt; -A$，则 $right_index -= 1$</li>
+<li>直至左右指针重合</li>
 </ul>
 </li>
-<li>由于在 python 中，判断 <code>num</code> 是否在 <code>nums</code> 中的语句为 <code>if num in nums</code>
-<ul>
-<li>当 <code>nums</code> 为列表时，查找的时间复杂度为 $O(n)$</li>
-<li>因此，将 <code>nums</code> 转换为哈希表（元组）</li>
 </ul>
 </li>
 <li>复杂度分析
 <ul>
-<li>时间复杂度：$O(n)$
+<li>时间复杂度：$O(n^2)$
 <ul>
-<li>虽然有嵌套循环，但<strong>每个元素最多被访问两次</strong>
-<ul>
-<li>一次在外层 for 循环，一次在 while 循环中作为连续序列的一部分
-<ul>
-<li>并不是每次 for 都会执行 while</li>
+<li>最外层循环时间复杂度为 $O(n)$</li>
+<li>双指针时间复杂度为 $O(n)$</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>因此整体仍是线性时间</li>
-</ul>
-</li>
-<li>空间复杂度：$O(n)$
+<li>空间复杂度：$O(1)$
 <ul>
-<li>需要额外空间存储 <code>set(nums)</code></li>
+<li>空间复杂度：$O(1)$，仅用到若干变量</li>
 </ul>
 </li>
 </ul>
@@ -446,53 +439,57 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">longestConsecutive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 首先找到一个连续序列中最小的</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 然后不断 +1 并判断是否在序列中</span>
-</span></span><span class="line"><span class="cl">        <span class="n">nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">max_len</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>  <span class="c1"># 找到某一序列的最小值</span>
-</span></span><span class="line"><span class="cl">                <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                <span class="n">num_</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="n">num_</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">num_</span> <span class="o">=</span> <span class="n">num_</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">max_len</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 简化</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">longestConsecutive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">		<span class="n">nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="n">max_len</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">		    <span class="k">if</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>  <span class="c1"># 找到某一序列的最小值</span>
-</span></span><span class="line"><span class="cl">		        <span class="n">num_</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">		        <span class="k">while</span> <span class="n">num_</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">		            <span class="n">num_</span> <span class="o">=</span> <span class="n">num_</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">		        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">num_</span> <span class="o">-</span> <span class="n">num</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">max_len</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">threeSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="c1"># 将三数之和转化为两数之和</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nums</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>  <span class="c1"># 首先进行排序，以满足双指针</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]):</span>  <span class="c1"># 需要留下两个位置给后两个数</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 防止重复</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            <span class="c1"># 设置终止条件</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果最大的两个相加都小于</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">num</span><span class="p">:</span> <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果最小的两个相加都大于</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">num</span><span class="p">:</span> <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            <span class="c1"># 两数之和</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 设置左右指针</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="n">num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">num</span><span class="p">,</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 跳过重复数字</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span> <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span> <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">num</span><span class="p">:</span> <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span> <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">output</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -503,7 +500,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
+            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
         
     </section>
 
@@ -557,45 +554,6 @@
             
                 
 <article class="">
-    <a href="/p/001-two-sum/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">01. 两数之和</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/049-group-anagrams/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">049. 字母异位词分组</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/15.-3sum/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">015. 三数之和</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/3-longest-substring-without-repeating-characters/">
         
         
@@ -615,6 +573,45 @@
 
         <div class="article-details">
             <h2 class="article-title">438. 找到字符串中所有字母异位词</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/11-container-with-most-water/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">011. 盛最多水的容器</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/283-move-zeroes/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">283. 移动零</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/128-longest-consecutive-sequence/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">128. 最长连续序列</h2>
         </div>
     </a>
 </article>
